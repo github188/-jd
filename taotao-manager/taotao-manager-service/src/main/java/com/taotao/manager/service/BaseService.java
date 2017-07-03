@@ -18,7 +18,9 @@ public abstract class BaseService<T extends BasePojo> {
     @Autowired
     private Mapper<T> mapper;
 
-
+    public Mapper<T> getMapper() {
+        return mapper;
+    }
     /**
      * 通过主键查询
      * @param id
@@ -63,6 +65,19 @@ public abstract class BaseService<T extends BasePojo> {
     public PageInfo<T> queryPageListByWhere(int page, int row, T record) {
         PageHelper.startPage(page, row);
         List<T> list = queryListByWhere(record);
+        return new PageInfo<T>(list);
+    }
+
+    /**
+     * 自定义查询条件，分页查询
+     * @param page
+     * @param row
+     * @param example
+     * @return
+     */
+    public PageInfo<T> queryPageListByExample(int page, int row, Example example) {
+        PageHelper.startPage(page, row);
+        List<T> list = mapper.selectByExample(example);
         return new PageInfo<T>(list);
     }
 

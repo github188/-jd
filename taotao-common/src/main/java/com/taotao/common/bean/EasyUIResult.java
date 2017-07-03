@@ -1,9 +1,9 @@
-package com.taotao.manager.bean;
-
-import java.util.List;
+package com.taotao.common.bean;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
 
 public class EasyUIResult {
 
