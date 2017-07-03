@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,33 +25,41 @@ public class ItemService extends BaseService<Item> {
 
     /**
      * 在一个事务中添加item项和itemdesc项
+     *
      * @param item
      * @param desc
      */
     public void saveItem(Item item, ItemDesc desc) {
         item.setStatus(1);
         item.setId(null);
-        desc.setItemId(item.getId());
         save(item);
+        desc.setItemId(item.getId());
         itemDescService.save(desc);
     }
 
     public PageInfo<Item> queryItemList(int page, int rows, Object o) {
         Example example = new Example(Item.class);
-        List<Object> list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-        example.createCriteria().andIn("status", list);
-        example.setOrderByClause("updated DESC");
+        example.setOrderByClause("status ASC");
         return queryPageListByExample(page, rows, example);
     }
 
-    public void updateItems(List<Object> ids) {
+    public void updateItems(List<Object> ids, int status) {
         Mapper<Item> mapper = getMapper();
         Example example = new Example(Item.class);
         example.createCriteria().andIn("id", ids);
         Item item = new Item();
-        item.setStatus(3);
+        item.setStatus(status);
         mapper.updateByExampleSelective(item, example);
     }
+
+    public void updateItem(Item item, String desc) {
+        ItemDesc itemDesc = new ItemDesc();
+        itemDesc.setItemDesc(desc);
+        itemDesc.setItemId(item.getId());
+        itemDesc.setUpdated(new Date());
+        updateSelective(item);
+        itemDescService.updateSelective(itemDesc);
+    }
+
+
 }

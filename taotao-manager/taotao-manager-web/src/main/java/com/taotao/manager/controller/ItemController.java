@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -95,25 +96,59 @@ public class ItemController {
 
     /**
      * 逻辑删除数据
+     *
      * @param ids
      * @return
      */
-    @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity<Void> updateItems(@RequestParam("ids") List<Object> ids) {
+    @RequestMapping (value = "{tock}",method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateItems(@RequestParam("ids") List<Object> ids,
+                                            @PathVariable(value = "tock") String tock) {
         try {
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("修改商品： ids = {}", ids);
+                LOGGER.debug("刷新商品： ids = {}", ids);
             }
-
-            itemService.updateItems(ids);
+            if (tock == null) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            }
+            int status = 1;
+            if (tock.equals("delete")) {
+                status = 3;
+            } else if (tock.equals("instock")) {
+                status = 2;
+            }
+            itemService.updateItems(ids, status);
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("修改商品成功： itemId = {}", ids);
+                LOGGER.debug("刷新商品成功： itemId = {}", ids);
             }
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            return ResponseEntity.status(HttpStatus.OK).build();
         } catch (Exception e) {
-            LOGGER.error("修改商品失败： item = ", ids);
+            LOGGER.error("刷新商品失败： item = ", ids);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    /**
+     * 更新商品
+     *
+     * @param item
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("开启更新商品: item = {}", item);
+            }
+            itemService.updateItem(item, desc);
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("更新商品成功，item = {}", item);
+            }
+            return ResponseEntity.ok(null);
+        } catch (Exception e) {
+            LOGGER.error("更新商品失败: item = {}", item);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }
