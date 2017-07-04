@@ -4,6 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.taotao.common.bean.EasyUIResult;
 import com.taotao.manager.pojo.Item;
 import com.taotao.manager.pojo.ItemDesc;
+import com.taotao.manager.pojo.ItemParam;
+import com.taotao.manager.pojo.ItemParamItem;
 import com.taotao.manager.service.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +41,8 @@ public class ItemController {
      */
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity saveItem(Item item,
-                                   @RequestParam(value = "desc") String desc) {
+                                   @RequestParam(value = "desc") String desc,
+                                   @RequestParam("itemParams") String itemParams) {
         try {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("添加商品： item = {}", item);
@@ -48,7 +51,7 @@ public class ItemController {
             ItemDesc itemDesc = new ItemDesc();
             itemDesc.setItemDesc(desc);
 
-            itemService.saveItem(item, itemDesc);
+            itemService.saveItem(item, itemDesc, itemParams);
 
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("添加商品成功： itemId = {}", item.getId());
@@ -135,14 +138,22 @@ public class ItemController {
      * @return
      */
     @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc) {
+    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc,
+                                           @RequestParam("itemParams") String itemParams,
+                                           @RequestParam("itemParamId") Long itemParamId) {
         try {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("开启更新商品: item = {}", item);
             }
-            itemService.updateItem(item, desc);
+            ItemParamItem itemParamItem = null;
+            if (itemParamId != null) {
+                itemParamItem = new ItemParamItem();
+                itemParamItem.setId(itemParamId);
+                itemParamItem.setParamData(itemParams);
+            }
+            itemService.updateItem(item, desc, itemParamItem);
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("更新商品成功，item = {}", item);
+                LOGGER.debug("更新商品成功，item = {},itemParams ={}", item,itemParams);
             }
             return ResponseEntity.ok(null);
         } catch (Exception e) {
