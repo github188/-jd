@@ -4,6 +4,7 @@
     <file type="web" url="file://$PROJECT_DIR$/taotao-common" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-manager" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-parent" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-web" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -11,6 +12,7 @@
         <option value="$PROJECT_DIR$/taotao-parent/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-common/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-manager/pom.xml" />
+        <option value="$PROJECT_DIR$/taotao-web/pom.xml" />
       </list>
     </option>
   </component>
