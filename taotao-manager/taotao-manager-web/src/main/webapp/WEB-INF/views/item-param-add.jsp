@@ -57,7 +57,7 @@
                  }); */
 
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: "/rest/item/param/" + node.id,
                     statusCode: {
                         404: function () {

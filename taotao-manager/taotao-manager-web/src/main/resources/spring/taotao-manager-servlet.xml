@@ -8,7 +8,17 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <!--注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg index="0" value="UTF-8"/>
+            </bean>
+            <!--自定义json的转化器-->
+            <bean class="com.taotao.common.spring.exetend.converter.CallbackMappingJackson2HttpMessageConverter">
+                <property name="callbackName" value="callback"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--controller扫描包-->
     <context:component-scan base-package="com.taotao.manager.controller"/>

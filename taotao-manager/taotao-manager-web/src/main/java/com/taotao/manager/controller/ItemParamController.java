@@ -80,6 +80,7 @@ public class ItemParamController {
             t.setItemCatId(itemCatId);
             t.setParamData(paramData);
             itemParamService.save(t);
+
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("新增模板成功： paramDate = {}", paramData);
             }
