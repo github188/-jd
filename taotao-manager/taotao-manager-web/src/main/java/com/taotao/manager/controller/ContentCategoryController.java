@@ -25,6 +25,7 @@ public class ContentCategoryController {
 
     @Autowired
     private ContentCategoryService contenCategoryService;
+
     /**
      * 查询广告
      *
@@ -54,6 +55,73 @@ public class ContentCategoryController {
                 LOGGER.debug("查询广告失败");
             }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    /**
+     * 保存新的商品分类广告
+     *
+     * @param contentCategory
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<ContentCategory> saveContentCatgory(ContentCategory contentCategory) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("保存广告商品，contentCategory = {}", contentCategory);
+            }
+
+            contenCategoryService.saveContentCatgory(contentCategory);
+
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("保存广告商品成功，contentCategory = {}", contentCategory);
+            }
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(contentCategory);
+        } catch (Exception e) {
+            LOGGER.error("保存广告商品失败，contentCategory = {}", contentCategory);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    /**
+     * 更新商品广告分类
+     *
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateContentCategory(ContentCategory contentCategory) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("更新广告商品，contentCategory = {}", contentCategory);
+            }
+            contenCategoryService.updateSelective(contentCategory);
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("更新广告商品成功，contentCategory = {}", contentCategory);
+            }
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (Exception e) {
+            LOGGER.error("更新广告商品失败，contentCategory = {}", contentCategory);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteContentCatgory(ContentCategory contentCategory) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("更新广告商品，contentCategory = {}", contentCategory);
+            }
+
+            contenCategoryService.deleteContentCatgory(contentCategory);
+
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("更新广告商品成功，contentCategory = {}", contentCategory);
+            }
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (Exception e) {
+            LOGGER.error("更新广告商品失败，contentCategory = {}", contentCategory);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 }

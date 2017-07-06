@@ -83,4 +83,15 @@ public class ContentCategory extends BasePojo {
         return getIsParent() ? "closed" : "open";
     }
 
+    @Override
+    public String toString() {
+        return "ContentCategory{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", name='" + name + '\'' +
+                ", status=" + status +
+                ", sortOrder=" + sortOrder +
+                ", isParent=" + isParent +
+                '}';
+    }
 }
