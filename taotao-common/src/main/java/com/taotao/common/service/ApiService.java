@@ -1,8 +1,7 @@
-package com.taotao.web.service;
+package com.taotao.common.service;
 
 import com.taotao.common.bean.HttpResult;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +28,10 @@ import java.util.Map;
 @Service
 public class ApiService {
 
-    @Autowired
+    @Autowired(required = false)
     private CloseableHttpClient httpClient;
 
-    @Autowired
+    @Autowired(required = false)
     private RequestConfig config;
 
     public String doGet(String url) throws IOException {

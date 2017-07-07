@@ -41,7 +41,7 @@
           factory-bean="builder" factory-method="build"></bean>
 
     <!--定期清理无效链接-->
-    <bean class="com.taotao.web.httpclient.IdlConnectionEvictor" destroy-method="shutDown">
+    <bean class="com.taotao.common.httpclient.IdlConnectionEvictor" destroy-method="shutDown">
         <constructor-arg index="0" ref="httpClientConnectionManager"/>
     </bean>
 </beans>

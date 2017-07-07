@@ -1,4 +1,4 @@
-package com.taotao.web.httpclient;
+package com.taotao.common.httpclient;
 
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.slf4j.Logger;

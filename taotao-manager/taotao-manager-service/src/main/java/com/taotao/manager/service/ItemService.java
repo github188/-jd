@@ -9,6 +9,7 @@ import com.taotao.manager.pojo.ItemDesc;
 import com.taotao.manager.pojo.ItemParamItem;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class ItemService extends BaseService<Item> {
     @Autowired
     private ItemParamItemService itemParamItemService;
 
+    @Value("${WEB_TAOTAO_URL}")
+    private String URL;
 
     /**
      * 在一个事务中添加item项和itemdesc项
@@ -76,6 +79,10 @@ public class ItemService extends BaseService<Item> {
         if (itemParamItem != null) {
             itemParamItemService.updateSelective(itemParamItem);
         }
+
+        //通知其他系统该商品已经更新
+        String url = URL + "/item/cache/" + item.getId() + ".html";
+
     }
 
 

@@ -103,7 +103,7 @@ public class ItemController {
      * @param ids
      * @return
      */
-    @RequestMapping (value = "{tock}",method = RequestMethod.PUT)
+    @RequestMapping(value = "{tock}", method = RequestMethod.PUT)
     public ResponseEntity<Void> updateItems(@RequestParam("ids") List<Object> ids,
                                             @PathVariable(value = "tock") String tock) {
         try {
@@ -124,6 +124,7 @@ public class ItemController {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("刷新商品成功： itemId = {}", ids);
             }
+
             return ResponseEntity.status(HttpStatus.OK).build();
         } catch (Exception e) {
             LOGGER.error("刷新商品失败： item = ", ids);
@@ -153,12 +154,38 @@ public class ItemController {
             }
             itemService.updateItem(item, desc, itemParamItem);
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("更新商品成功，item = {},itemParams ={}", item,itemParams);
+                LOGGER.debug("更新商品成功，item = {},itemParams ={}", item, itemParams);
             }
             return ResponseEntity.ok(null);
         } catch (Exception e) {
             LOGGER.error("更新商品失败: item = {}", item);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * 根据商品ID查询商品
+     *
+     * @param itemId
+     * @return
+     */
+    @RequestMapping("{itemId}")
+    public ResponseEntity<Item> queryById(@PathVariable("itemId") long itemId) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("查询商品: itemId = {}", itemId);
+            }
+            Item item = itemService.queryById(itemId);
+            if (item == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("查询商品成功，item = {}", item);
+            }
+            return ResponseEntity.ok(item);
+        } catch (Exception e) {
+            LOGGER.error("更新商品失败: itemId = {}", itemId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
