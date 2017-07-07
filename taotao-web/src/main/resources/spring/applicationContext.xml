@@ -17,8 +17,8 @@
 		<!-- 配置资源文件 -->
 		<property name="locations">
 			<list>
-				<!--<value>classpath:jdbc.properties</value>
-				<value>classpath:upload.properties</value>-->
+				<value>classpath:httpclient.properties</value>
+				<value>classpath:env.properties</value>
 			</list>
 		</property>
 	</bean>

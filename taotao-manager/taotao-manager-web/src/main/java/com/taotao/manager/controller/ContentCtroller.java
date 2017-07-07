@@ -66,7 +66,6 @@ public class ContentCtroller {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("查询内容列表，categoryId = {}", categoryId);
             }
-
             PageInfo<Content> pageInfo = contentService.queryListByUpdate(categoryId, page, rows);
 
             if (LOGGER.isDebugEnabled()) {
