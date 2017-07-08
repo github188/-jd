@@ -1,5 +1,6 @@
 package com.taotao.sso.controller;
 
+import com.taotao.common.util.CookieUtils;
 import com.taotao.sso.pojo.User;
 import com.taotao.sso.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -11,11 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import sun.security.util.Password;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +34,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    private static final String COOKIE_NAME = "TT_TOKEN";
 
     /**
      * 注册跳转
@@ -127,6 +130,75 @@ public class UserController {
         } catch (Exception e) {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("实现用户的注册失败，服务器出错，user = {}", user);
+            }
+            return null;
+        }
+    }
+
+
+    /**
+     * 实现用户的登录
+     *
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "doLogin", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> doLogin(@RequestParam("username") String userName,
+                                       @RequestParam("password") String password,
+                                       HttpServletRequest request,
+                                       HttpServletResponse response) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("实现用户的登录，user = {}");
+            }
+            Map<String, Object> map = new HashMap<>();
+
+            String token = userService.doLogin(userName, password);
+            if (token == null) {
+                //登录失败
+                map.put("status", 400);
+            } else {
+                //登录成功
+                map.put("status", 200);
+                //将token放进cookie中
+                CookieUtils.setCookie(request, response, COOKIE_NAME, token);
+            }
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("实现用户的登录成功，user = {}");
+            }
+            return map;
+        } catch (Exception e) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("实现用户的登录失败，服务器出错，user = {}");
+            }
+            return null;
+        }
+    }
+
+    /**
+     * 根据token查询登录状态
+     *
+     * @param token
+     * @return
+     */
+    @RequestMapping(value = "{token}", method = RequestMethod.GET)
+    public ResponseEntity<User> queryUserByToken(@PathVariable("token") String token) {
+        try {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("根据token查询登录状态，user = {}");
+            }
+            User user = userService.queryUserBytoken(token);
+            if (user == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("根据token查询登录状态成功，user = {}");
+            }
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("根据token查询登录状态失败，服务器出错，user = {}");
             }
             return null;
         }
