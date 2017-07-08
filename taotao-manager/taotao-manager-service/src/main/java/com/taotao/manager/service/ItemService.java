@@ -3,6 +3,7 @@ package com.taotao.manager.service;
 import com.github.abel533.entity.Example;
 import com.github.abel533.mapper.Mapper;
 import com.github.pagehelper.PageInfo;
+import com.taotao.common.service.ApiService;
 import com.taotao.manager.mapper.ItemMapper;
 import com.taotao.manager.pojo.Item;
 import com.taotao.manager.pojo.ItemDesc;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,6 +29,9 @@ public class ItemService extends BaseService<Item> {
 
     @Autowired
     private ItemParamItemService itemParamItemService;
+
+    @Autowired
+    private ApiService apiService;
 
     @Value("${WEB_TAOTAO_URL}")
     private String URL;
@@ -82,7 +87,13 @@ public class ItemService extends BaseService<Item> {
 
         //通知其他系统该商品已经更新
         String url = URL + "/item/cache/" + item.getId() + ".html";
-
+        try {
+            apiService.doPost(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            return;
+        }
     }
 
 
