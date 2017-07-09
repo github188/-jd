@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.taotao.store.order.mapper.OrderMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,9 @@ public class OrderService {
 
     @Autowired
     private IOrder orderDao;
+
+    @Autowired
+    private OrderMapper orderMapper;
     
 //    @Autowired
 //    private RabbitTemplate rabbitTemplate;
@@ -35,7 +39,7 @@ public class OrderService {
         try {
             order = objectMapper.readValue(json, Order.class);
             // 校验Order对象
-            ValidateUtil.validate(order);
+//            ValidateUtil.validate(order);
         } catch (Exception e) {
             return TaotaoResult.build(400, "请求参数有误!");
         }
@@ -56,8 +60,9 @@ public class OrderService {
             order.setBuyerRate(0);
 
             // 持久化order对象
-            orderDao.createOrder(order);
-            
+            orderMapper.insertSelective(order);
+//            orderDao.createOrder(order);
+
             //发送消息到RabbitMQ
 //            Map<String, Object> msg = new HashMap<String, Object>(3);
 //            msg.put("userId", order.getUserId());
@@ -69,11 +74,12 @@ public class OrderService {
 //            msg.put("itemIds", itemIds);
 //            this.rabbitTemplate.convertAndSend(objectMapper.writeValueAsString(msg));
             
-            return TaotaoResult.ok(orderId);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            return TaotaoResult.ok(order.getOrderId());
         }
-        return TaotaoResult.build(400, "保存订单失败!");
+//        return TaotaoResult.build(400, "保存订单失败!");
     }
 
     public Order queryOrderById(String orderId) {

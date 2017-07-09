@@ -85,7 +85,7 @@
             return;
         }
         //处理商品的价格的单位，将元转化为分
-        $("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
+        $("#itemAddForm [name=price]").val((eval($("#itemAddForm [name=priceView]").val()) * 100).toFixed(0));
         //将编辑器中的内容同步到隐藏多行文本中
         itemAddEditor.sync();
 

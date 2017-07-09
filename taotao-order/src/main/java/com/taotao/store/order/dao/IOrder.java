@@ -28,7 +28,6 @@ public interface IOrder {
      * 根据用户名分页查询订单信息
      * 
      * @param buyerNick 买家昵称，用户名
-     * @param start 分页起始取数位置
      * @param count 查询数据条数
      * @return 分页结果集
      */

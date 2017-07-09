@@ -15,10 +15,10 @@ public class PaymentOrderJob extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        ApplicationContext applicationContext = (ApplicationContext) context.getJobDetail().getJobDataMap()
-                .get("applicationContext");
-        //时间参数，当前时间向前推2天
-        applicationContext.getBean(OrderMapper.class).paymentOrderScan(new DateTime().minusDays(2).toDate());
+//        ApplicationContext applicationContext = (ApplicationContext) context.getJobDetail().getJobDataMap()
+//                .get("applicationContext");
+//        //时间参数，当前时间向前推2天
+//        applicationContext.getBean(OrderMapper.class).paymentOrderScan(new DateTime().minusDays(2).toDate());
     }
 
 }

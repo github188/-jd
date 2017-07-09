@@ -18,54 +18,58 @@ import com.taotao.store.order.service.OrderService;
 @Controller
 public class OrderController {
 
-	@Autowired
-	private OrderService orderService;
-	
-	/**
-	 * 创建订单
-	 * @param json
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/create" , method = RequestMethod.POST)
-	public TaotaoResult createOrder(@RequestBody String json) {
-		return orderService.createOrder(json);
-	}
-	
-	
-	/**
-	 * 根据订单ID查询订单
-	 * @param orderId
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/query/{orderId}" ,method = RequestMethod.GET)
-	public Order queryOrderById(@PathVariable("orderId") String orderId) {
-		return orderService.queryOrderById(orderId);
-	}
+    @Autowired
+    private OrderService orderService;
 
-	/**
-	 * 根据用户名分页查询订单
-	 * @param buyerNick
-	 * @param page
-	 * @param count
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping("/query/{buyerNick}/{page}/{count}")
-	public PageResult<Order> queryOrderByUserNameAndPage(@PathVariable("buyerNick") String buyerNick,@PathVariable("page") Integer page,@PathVariable("count") Integer count) {
-		return orderService.queryOrderByUserNameAndPage(buyerNick, page, count);
-	}
+    /**
+     * 创建订单
+     *
+     * @param json
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public TaotaoResult createOrder(@RequestBody String json) {
+        return orderService.createOrder(json);
+    }
 
-	
-	/**
-	 * 修改订单状态
-	 * @param json
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/changeOrderStatus",method = RequestMethod.POST)
-	public ResultMsg changeOrderStatus(@RequestBody String json) {
-		return orderService.changeOrderStatus(json);
-	}
+
+    /**
+     * 根据订单ID查询订单
+     *
+     * @param orderId
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/query/{orderId}", method = RequestMethod.GET)
+    public Order queryOrderById(@PathVariable("orderId") String orderId) {
+        return orderService.queryOrderById(orderId);
+    }
+
+    /**
+     * 根据用户名分页查询订单
+     *
+     * @param buyerNick
+     * @param page
+     * @param count
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/query/{buyerNick}/{page}/{count}")
+    public PageResult<Order> queryOrderByUserNameAndPage(@PathVariable("buyerNick") String buyerNick, @PathVariable("page") Integer page, @PathVariable("count") Integer count) {
+        return orderService.queryOrderByUserNameAndPage(buyerNick, page, count);
+    }
+
+
+    /**
+     * 修改订单状态
+     *
+     * @param json
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/changeOrderStatus", method = RequestMethod.POST)
+    public ResultMsg changeOrderStatus(@RequestBody String json) {
+        return orderService.changeOrderStatus(json);
+    }
 }
