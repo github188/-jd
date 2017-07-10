@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taotao.common.bean.HttpResult;
 import com.taotao.common.service.ApiService;
 import com.taotao.web.bean.Order;
+import com.taotao.web.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,17 @@ public class OrderService {
         return null;
     }
 
+    public Order queryById(String id) {
+        String url = ORDER_TAOTAO_URL + "/order/query/" + id;
+        try {
+            String json = apiService.doGet(url);
+            if (json != null) {
+                return OBJECT_MAPPER.readValue(json, Order.class);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 }

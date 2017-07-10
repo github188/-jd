@@ -7,6 +7,8 @@ import com.taotao.web.bean.User;
 import com.taotao.web.service.ItemService;
 import com.taotao.web.service.OrderService;
 import com.taotao.web.service.UserService;
+import com.taotao.web.util.LocalUser;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,29 +61,41 @@ public class OrderController {
      */
     @RequestMapping(value = "submit", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> submit(Order order, @CookieValue("TT_TOKEN") String token) {
-        User user = userService.queryUserByToken(token);
-        order.setUserId(user.getId());
-        order.setBuyerNick(user.getUsername());
-
-        Map<String, Object> res = new HashMap<>();
-        String orderId = orderService.sumitOrder(order);
-        if (orderId == null) {
-            //订单提交失败
-            res.put("status", 400);
-        } else {
-            //订单提交成功
-            res.put("status", 200);
-            res.put("data", orderId);
+    public Map<String, Object> submit(Order order, @CookieValue("TT_TOKEN") String token,
+                                      HttpServletResponse response) {
+        try {
+            User user = LocalUser.getUser();
+            if (user != null) {
+                order.setUserId(user.getId());
+                order.setBuyerNick(user.getUsername());
+            } else {
+                response.sendRedirect("http://sso.taotao.com/user/login.html");
+            }
+            String orderId = orderService.sumitOrder(order);
+            Map<String, Object> res = new HashMap<>();
+            if (orderId == null) {
+                //订单提交失败
+                res.put("status", 400);
+            } else {
+                //订单提交成功
+                res.put("status", 200);
+                res.put("data", orderId);
+            }
+            return res;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return res;
     }
 
     @RequestMapping(value = "success", method = RequestMethod.GET)
-    public String success(@RequestParam("id") long id,
-                          Model model) {
-//        Item item = itemService.queryById(id);
-//        model.addAttribute("item",)
-        return "success";
+    public ModelAndView success(@RequestParam("id") String id,
+                                Model model) {
+        Order order = orderService.queryById(id);
+
+        ModelAndView mv = new ModelAndView("success");
+        mv.addObject("order", order);
+        mv.addObject("date", new DateTime().plus(2).toString("MM月dd日"));
+        return mv;
     }
 }

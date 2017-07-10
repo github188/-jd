@@ -5,6 +5,7 @@ import com.taotao.common.service.RedisService;
 import com.taotao.common.util.CookieUtils;
 import com.taotao.web.bean.User;
 import com.taotao.web.service.UserService;
+import com.taotao.web.util.LocalUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -32,6 +33,7 @@ public class UserLoginHandlerIntercepter implements HandlerInterceptor {
             response.sendRedirect("http://sso.taotao.com/user/login.html");
             return false;
         }
+
         String key = "TOKEN_" + token;
         String data = redisService.get(key);
         if (data == null) {
@@ -44,6 +46,7 @@ public class UserLoginHandlerIntercepter implements HandlerInterceptor {
             response.sendRedirect("http://sso.taotao.com/user/login.html");
             return false;
         }
+        LocalUser.setUser(user);
         //登录成功
         return true;
     }

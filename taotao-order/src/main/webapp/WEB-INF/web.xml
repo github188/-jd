@@ -5,7 +5,6 @@
 	 version="2.4">
 
 	<display-name>taotao-order</display-name>
-
 	<context-param>
 		<param-name>encoding</param-name>
 		<param-value>UTF-8</param-value>
@@ -50,5 +49,6 @@
 		<servlet-name>taotao-order</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
 
 </web-app>
