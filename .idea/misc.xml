@@ -5,6 +5,8 @@
     <file type="web" url="file://$PROJECT_DIR$/taotao-manager" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-order" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-parent" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-solr" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-solrj" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-sso" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-web" />
   </component>
@@ -16,6 +18,7 @@
         <option value="$PROJECT_DIR$/taotao-manager/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-web/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-order/pom.xml" />
+        <option value="$PROJECT_DIR$/taotao-solr/pom.xml" />
       </list>
     </option>
   </component>
