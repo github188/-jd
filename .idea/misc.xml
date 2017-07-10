@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/rabbitmp" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-common" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-manager" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-order" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-parent" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-search" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-solr" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-solrj" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-sso" />

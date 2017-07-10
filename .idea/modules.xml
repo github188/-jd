@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/rabbitmp/rabbitmp.iml" filepath="$PROJECT_DIR$/rabbitmp/rabbitmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-common/taotao-common.iml" filepath="$PROJECT_DIR$/taotao-common/taotao-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-manager/taotao-manager.iml" filepath="$PROJECT_DIR$/taotao-manager/taotao-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-manager/taotao-manager-mapper/taotao-manager-mapper.iml" filepath="$PROJECT_DIR$/taotao-manager/taotao-manager-mapper/taotao-manager-mapper.iml" />
@@ -10,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/taotao-manager/taotao-manager-web/taotao-manager-web.iml" filepath="$PROJECT_DIR$/taotao-manager/taotao-manager-web/taotao-manager-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-order/taotao-order.iml" filepath="$PROJECT_DIR$/taotao-order/taotao-order.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-parent/taotao-parent.iml" filepath="$PROJECT_DIR$/taotao-parent/taotao-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotao-search/taotao-search.iml" filepath="$PROJECT_DIR$/taotao-search/taotao-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-solr/taotao-solr.iml" filepath="$PROJECT_DIR$/taotao-solr/taotao-solr.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-solrj/taotao-solrj.iml" filepath="$PROJECT_DIR$/taotao-solrj/taotao-solrj.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-sso/taotao-sso.iml" filepath="$PROJECT_DIR$/taotao-sso/taotao-sso.iml" />

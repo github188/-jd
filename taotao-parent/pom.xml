@@ -7,6 +7,7 @@
     <modules>
         <module>../taotao-sso</module>
         <module>../taotao-order</module>
+        <module>../rabbitmp</module>
     </modules>
     <packaging>pom</packaging>
 
