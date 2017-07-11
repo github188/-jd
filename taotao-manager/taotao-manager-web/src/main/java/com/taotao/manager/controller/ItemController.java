@@ -169,7 +169,7 @@ public class ItemController {
      * @param itemId
      * @return
      */
-    @RequestMapping("{itemId}")
+    @RequestMapping(value = "{itemId}", method = RequestMethod.GET)
     public ResponseEntity<Item> queryById(@PathVariable("itemId") long itemId) {
         try {
             if (LOGGER.isDebugEnabled()) {

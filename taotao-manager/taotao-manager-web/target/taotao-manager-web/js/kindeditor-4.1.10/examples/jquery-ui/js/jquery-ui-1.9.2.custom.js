@@ -645,7 +645,7 @@ $.Widget.prototype = {
 		}
 
 		if ( typeof key === "string" ) {
-			// handle nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
+			// handler nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
 			options = {};
 			parts = key.split( "." );
 			key = parts.shift();
@@ -911,7 +911,7 @@ $.widget("ui.mouse", {
 	},
 
 	_mouseDown: function(event) {
-		// don't let more than one widget handle mouseStart
+		// don't let more than one widget handler mouseStart
 		if( mouseHandled ) { return; }
 
 		// we may have missed mouseup (out of window)
@@ -1581,7 +1581,7 @@ $.widget( "ui.accordion", {
 		if ( !options.collapsible && (options.active === false || options.active == null) ) {
 			options.active = 0;
 		}
-		// handle negative values
+		// handler negative values
 		if ( options.active < 0 ) {
 			options.active += this.headers.length;
 		}
@@ -1721,7 +1721,7 @@ $.widget( "ui.accordion", {
 
 	_setOption: function( key, value ) {
 		if ( key === "active" ) {
-			// _activate() will handle invalid values and update this.options
+			// _activate() will handler invalid values and update this.options
 			this._activate( value );
 			return;
 		}
@@ -1943,7 +1943,7 @@ $.widget( "ui.accordion", {
 		var toShow = data.newPanel,
 			toHide = this.prevShow.length ? this.prevShow : data.oldPanel;
 
-		// handle activating a panel during the animation for another activation
+		// handler activating a panel during the animation for another activation
 		this.prevShow.add( this.prevHide ).stop( true, true );
 		this.prevShow = toShow;
 		this.prevHide = toHide;
@@ -5763,7 +5763,7 @@ $.extend( $.ui.dialog.overlay, {
 			// we use a setTimeout in case the overlay is created from an
 			// event that we're going to be cancelling (see #2804)
 			setTimeout(function() {
-				// handle $(el).dialog().dialog('close') (see #4065)
+				// handler $(el).dialog().dialog('close') (see #4065)
 				if ( $.ui.dialog.overlay.instances.length ) {
 					$( document ).bind( $.ui.dialog.overlay.events, function( event ) {
 						// stop events if the z-index of the target is < the z-index of the overlay
@@ -5775,7 +5775,7 @@ $.extend( $.ui.dialog.overlay, {
 				}
 			}, 1 );
 
-			// handle window resize
+			// handler window resize
 			$( window ).bind( "resize.dialog-overlay", $.ui.dialog.overlay.resize );
 		}
 
@@ -5831,7 +5831,7 @@ $.extend( $.ui.dialog.overlay, {
 	height: function() {
 		var scrollHeight,
 			offsetHeight;
-		// handle IE
+		// handler IE
 		if ( $.ui.ie ) {
 			scrollHeight = Math.max(
 				document.documentElement.scrollHeight,
@@ -5847,7 +5847,7 @@ $.extend( $.ui.dialog.overlay, {
 			} else {
 				return scrollHeight + "px";
 			}
-		// handle "good" browsers
+		// handler "good" browsers
 		} else {
 			return $( document ).height() + "px";
 		}
@@ -5856,7 +5856,7 @@ $.extend( $.ui.dialog.overlay, {
 	width: function() {
 		var scrollWidth,
 			offsetWidth;
-		// handle IE
+		// handler IE
 		if ( $.ui.ie ) {
 			scrollWidth = Math.max(
 				document.documentElement.scrollWidth,
@@ -5872,7 +5872,7 @@ $.extend( $.ui.dialog.overlay, {
 			} else {
 				return scrollWidth + "px";
 			}
-		// handle "good" browsers
+		// handler "good" browsers
 		} else {
 			return $( document ).width() + "px";
 		}
@@ -5961,11 +5961,11 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		var o = this.options;
 
-		// among others, prevent a drag on a resizable-handle
-		if (this.helper || o.disabled || $(event.target).is('.ui-resizable-handle'))
+		// among others, prevent a drag on a resizable-handler
+		if (this.helper || o.disabled || $(event.target).is('.ui-resizable-handler'))
 			return false;
 
-		//Quit if we're not on a valid handle
+		//Quit if we're not on a valid handler
 		this.handle = this._getHandle(event);
 		if (!this.handle)
 			return false;
@@ -7914,7 +7914,7 @@ $.extend( $.effects, {
 	},
 
 	// Translates a [top,left] array into a baseline value
-	// this should be a little more flexible in the future to handle a string & hash
+	// this should be a little more flexible in the future to handler a string & hash
 	getBaseline: function( origin, original ) {
 		var y, x;
 		switch ( origin[ 0 ] ) {
@@ -10013,7 +10013,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		}
 
-		this.handles = o.handles || (!$('.ui-resizable-handle', this.element).length ? "e,s,se" : { n: '.ui-resizable-n', e: '.ui-resizable-e', s: '.ui-resizable-s', w: '.ui-resizable-w', se: '.ui-resizable-se', sw: '.ui-resizable-sw', ne: '.ui-resizable-ne', nw: '.ui-resizable-nw' });
+		this.handles = o.handles || (!$('.ui-resizable-handler', this.element).length ? "e,s,se" : { n: '.ui-resizable-n', e: '.ui-resizable-e', s: '.ui-resizable-s', w: '.ui-resizable-w', se: '.ui-resizable-se', sw: '.ui-resizable-sw', ne: '.ui-resizable-ne', nw: '.ui-resizable-nw' });
 		if(this.handles.constructor == String) {
 
 			if(this.handles == 'all') this.handles = 'n,e,s,w,se,sw,ne,nw';
@@ -10022,7 +10022,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			for(var i = 0; i < n.length; i++) {
 
 				var handle = $.trim(n[i]), hname = 'ui-resizable-'+handle;
-				var axis = $('<div class="ui-resizable-handle ' + hname + '"></div>');
+				var axis = $('<div class="ui-resizable-handler ' + hname + '"></div>');
 
 				// Apply zIndex to all handles - see #7960
 				axis.css({ zIndex: o.zIndex });
@@ -10078,7 +10078,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		//TODO: make renderAxis a prototype function
 		this._renderAxis(this.element);
 
-		this._handles = $('.ui-resizable-handle', this.element)
+		this._handles = $('.ui-resizable-handler', this.element)
 			.disableSelection();
 
 		//Matching axis name
@@ -10121,7 +10121,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		var _destroy = function(exp) {
 			$(exp).removeClass("ui-resizable ui-resizable-disabled ui-resizable-resizing")
-				.removeData("resizable").removeData("ui-resizable").unbind(".resizable").find('.ui-resizable-handle').remove();
+				.removeData("resizable").removeData("ui-resizable").unbind(".resizable").find('.ui-resizable-handler').remove();
 		};
 
 		//TODO: Unwrap at same DOM position
@@ -10994,8 +10994,8 @@ $.widget( "ui.slider", $.ui.mouse, {
 	_create: function() {
 		var i, handleCount,
 			o = this.options,
-			existingHandles = this.element.find( ".ui-slider-handle" ).addClass( "ui-state-default ui-corner-all" ),
-			handle = "<a class='ui-slider-handle ui-state-default ui-corner-all' href='#'></a>",
+			existingHandles = this.element.find( ".ui-slider-handler" ).addClass( "ui-state-default ui-corner-all" ),
+			handle = "<a class='ui-slider-handler ui-state-default ui-corner-all' href='#'></a>",
 			handles = [];
 
 		this._keySliding = false;
@@ -11069,13 +11069,13 @@ $.widget( "ui.slider", $.ui.mouse, {
 			});
 
 		this.handles.each(function( i ) {
-			$( this ).data( "ui-slider-handle-index", i );
+			$( this ).data( "ui-slider-handler-index", i );
 		});
 
 		this._on( this.handles, {
 			keydown: function( event ) {
 				var allowed, curVal, newVal, step,
-					index = $( event.target ).data( "ui-slider-handle-index" );
+					index = $( event.target ).data( "ui-slider-handler-index" );
 
 				switch ( event.keyCode ) {
 					case $.ui.keyCode.HOME:
@@ -11137,7 +11137,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 				this._slide( event, index, newVal );
 			},
 			keyup: function( event ) {
-				var index = $( event.target ).data( "ui-slider-handle-index" );
+				var index = $( event.target ).data( "ui-slider-handler-index" );
 
 				if ( this._keySliding ) {
 					this._keySliding = false;
@@ -11217,7 +11217,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			.focus();
 
 		offset = closestHandle.offset();
-		mouseOverHandle = !$( event.target ).parents().andSelf().is( ".ui-slider-handle" );
+		mouseOverHandle = !$( event.target ).parents().andSelf().is( ".ui-slider-handler" );
 		this._clickOffset = mouseOverHandle ? { left: 0, top: 0 } : {
 			left: event.pageX - offset.left - ( closestHandle.width() / 2 ),
 			top: event.pageY - offset.top -
@@ -12716,7 +12716,7 @@ $.widget( "ui.spinner", {
 	},
 
 	_create: function() {
-		// handle string values that need to be parsed
+		// handler string values that need to be parsed
 		this._setOption( "max", this.options.max );
 		this._setOption( "min", this.options.min );
 		this._setOption( "step", this.options.step );
@@ -13232,7 +13232,7 @@ $.widget( "ui.tabs", {
 			}
 		}
 
-		// handle numbers: negative, out of range
+		// handler numbers: negative, out of range
 		if ( active !== false ) {
 			active = this.tabs.index( this.tabs.eq( active ) );
 			if ( active === -1 ) {
@@ -13390,7 +13390,7 @@ $.widget( "ui.tabs", {
 
 	_setOption: function( key, value ) {
 		if ( key === "active" ) {
-			// _activate() will handle invalid values and update this.options
+			// _activate() will handler invalid values and update this.options
 			this._activate( value );
 			return;
 		}
@@ -14858,7 +14858,7 @@ $.widget( "ui.tooltip", {
 
 		// close open tooltips
 		$.each( this.tooltips, function( id, element ) {
-			// Delegate to close method to handle common cleanup
+			// Delegate to close method to handler common cleanup
 			var event = $.Event( "blur" );
 			event.target = event.currentTarget = element[0];
 			that.close( event, true );

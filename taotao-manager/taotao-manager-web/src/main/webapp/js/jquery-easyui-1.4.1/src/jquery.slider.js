@@ -18,7 +18,7 @@
 	function init(target){
 		var slider = $('<div class="slider">' +
 				'<div class="slider-inner">' +
-				'<a href="javascript:void(0)" class="slider-handle"></a>' +
+				'<a href="javascript:void(0)" class="slider-handler"></a>' +
 				'<span class="slider-tip"></span>' +
 				'</div>' +
 				'<div class="slider-rule"></div>' +
@@ -122,7 +122,7 @@
 		slider.addClass(opts.mode == 'h' ? 'slider-h' : 'slider-v');
 		slider.addClass(opts.disabled ? 'slider-disabled' : '');
 		
-		slider.find('a.slider-handle').draggable({
+		slider.find('a.slider-handler').draggable({
 			axis:opts.mode,
 			cursor:'pointer',
 			disabled: opts.disabled,
@@ -200,11 +200,11 @@
 		
 		if (opts.mode == 'h'){
 			var style = 'left:'+pos+'px;';
-			slider.find('.slider-handle').attr('style', style);
+			slider.find('.slider-handler').attr('style', style);
 			tip.attr('style', style +  'margin-left:' + (-Math.round(tip.outerWidth()/2)) + 'px');
 		} else {
 			var style = 'top:' + pos + 'px;';
-			slider.find('.slider-handle').attr('style', style);
+			slider.find('.slider-handler').attr('style', style);
 			tip.attr('style', style + 'margin-left:' + (-Math.round(tip.outerWidth())) + 'px');
 		}
 		

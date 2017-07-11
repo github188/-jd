@@ -77,7 +77,7 @@
 //			proxy.css('cursor', opts.cursor);
 //		} else {
 //			proxy = $(e.data.target);
-//			$.data(e.data.target, 'draggable').handle.css('cursor', opts.cursor);
+//			$.data(e.data.target, 'draggable').handler.css('cursor', opts.cursor);
 //		}
 		proxy.css({
 			left:e.data.left,
@@ -322,7 +322,7 @@
 //				$('body').css('cursor', opts.cursor);
 			});
 			
-			// check if the handle can be dragged
+			// check if the handler can be dragged
 			function checkArea(e) {
 				var state = $.data(e.data.target, 'draggable');
 				var handle = state.handle;

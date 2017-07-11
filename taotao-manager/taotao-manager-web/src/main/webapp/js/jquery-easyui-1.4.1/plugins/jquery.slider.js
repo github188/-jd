@@ -9,7 +9,7 @@
  */
 (function($){
 function _1(_2){
-var _3=$("<div class=\"slider\">"+"<div class=\"slider-inner\">"+"<a href=\"javascript:void(0)\" class=\"slider-handle\"></a>"+"<span class=\"slider-tip\"></span>"+"</div>"+"<div class=\"slider-rule\"></div>"+"<div class=\"slider-rulelabel\"></div>"+"<div style=\"clear:both\"></div>"+"<input type=\"hidden\" class=\"slider-value\">"+"</div>").insertAfter(_2);
+var _3=$("<div class=\"slider\">"+"<div class=\"slider-inner\">"+"<a href=\"javascript:void(0)\" class=\"slider-handler\"></a>"+"<span class=\"slider-tip\"></span>"+"</div>"+"<div class=\"slider-rule\"></div>"+"<div class=\"slider-rulelabel\"></div>"+"<div style=\"clear:both\"></div>"+"<input type=\"hidden\" class=\"slider-value\">"+"</div>").insertAfter(_2);
 var t=$(_2);
 t.addClass("slider-f").hide();
 var _4=t.attr("name");
@@ -85,7 +85,7 @@ var _1b=_19.slider;
 _1b.removeClass("slider-h slider-v slider-disabled");
 _1b.addClass(_1a.mode=="h"?"slider-h":"slider-v");
 _1b.addClass(_1a.disabled?"slider-disabled":"");
-_1b.find("a.slider-handle").draggable({axis:_1a.mode,cursor:"pointer",disabled:_1a.disabled,onDrag:function(e){
+_1b.find("a.slider-handler").draggable({axis:_1a.mode,cursor:"pointer",disabled:_1a.disabled,onDrag:function(e){
 var _1c=e.data.left;
 var _1d=_1b.width();
 if(_1a.mode!="h"){
@@ -153,11 +153,11 @@ tip.hide();
 }
 if(_27.mode=="h"){
 var _2b="left:"+pos+"px;";
-_28.find(".slider-handle").attr("style",_2b);
+_28.find(".slider-handler").attr("style",_2b);
 tip.attr("style",_2b+"margin-left:"+(-Math.round(tip.outerWidth()/2))+"px");
 }else{
 var _2b="top:"+pos+"px;";
-_28.find(".slider-handle").attr("style",_2b);
+_28.find(".slider-handler").attr("style",_2b);
 tip.attr("style",_2b+"margin-left:"+(-Math.round(tip.outerWidth()))+"px");
 }
 if(_29!=_25){

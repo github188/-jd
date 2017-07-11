@@ -18,6 +18,8 @@
 		<property name="locations">
 			<list>
 				<value>classpath:solr.properties</value>
+				<value>classpath:rabbitmp.properties</value>
+				<value>classpath:httpclient.properties</value>
 			</list>
 		</property>
 	</bean>
