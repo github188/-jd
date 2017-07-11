@@ -1,6 +1,5 @@
 package com.taotao.sso.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taotao.common.service.RedisService;
 import com.taotao.sso.mapper.UserMapper;
@@ -8,7 +7,6 @@ import com.taotao.sso.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
-import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.util.Date;

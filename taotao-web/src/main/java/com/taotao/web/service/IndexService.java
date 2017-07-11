@@ -58,6 +58,8 @@ public class IndexService {
 //    }
 
     public String getIndexAd1() {
+        //http://manager.taotao.com
+        ///rest/content?categoryId=40&page=1&rows=20
         String url = MANAGER_TAOTAO_URL + INDEX_AD1_URL;
         try {
             String json = apiService.doGet(url);

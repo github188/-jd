@@ -7,6 +7,10 @@
           <element id="module-output" name="taotao-cart" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="taotao-manager-pojo-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="taotao-manager-pojo" />
+          </element>
+          <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0" />
           <element id="archive" name="taotao-common-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="taotao-common" />
           </element>
@@ -29,7 +33,6 @@
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:3.7.5" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.1" />
           <element id="library" level="project" name="Maven: com.github.abel533:mapper:2.3.4" />
-          <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.2" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.32" />

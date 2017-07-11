@@ -4,10 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taotao.common.service.RedisService;
 import com.taotao.common.util.CookieUtils;
 import com.taotao.web.bean.User;
-import com.taotao.web.service.UserService;
 import com.taotao.web.util.LocalUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
