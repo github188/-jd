@@ -203,4 +203,10 @@ public class UserController {
             return null;
         }
     }
+
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logout(@CookieValue("TT_TOKEN") String token) {
+        userService.logout(token);
+        return "login";
+    }
 }

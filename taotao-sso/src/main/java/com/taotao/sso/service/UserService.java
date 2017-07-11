@@ -91,4 +91,9 @@ public class UserService {
         }
         return null;
     }
+
+    public void logout(String token) {
+        String key = "TOKEN_" + token;
+        redisService.delete(key);
+    }
 }

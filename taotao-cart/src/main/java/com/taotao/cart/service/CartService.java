@@ -59,4 +59,23 @@ public class CartService {
         example.createCriteria().andEqualTo("userId", LocalUser.getUser().getId());
         return cartMapper.selectByExample(example);
     }
+
+    public void updateNum(int num, long itemId) {
+        //更新的数据
+        Cart cart = new Cart();
+        cart.setNum(num);
+        cart.setItemId(itemId);
+        //更新的条件
+        Example example = new Example(Cart.class);
+        example.createCriteria().andEqualTo("itemId", itemId).
+                andEqualTo("userId", LocalUser.getUser().getId());
+
+        cartMapper.updateByExampleSelective(cart, example);
+    }
+
+    public void deleteCart(long itemId) {
+        Cart cart = new Cart();
+        cart.setItemId(itemId);
+        cartMapper.delete(cart);
+    }
 }

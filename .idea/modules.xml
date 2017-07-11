@@ -14,7 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/taotao-parent/taotao-parent.iml" filepath="$PROJECT_DIR$/taotao-parent/taotao-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-search/taotao-search.iml" filepath="$PROJECT_DIR$/taotao-search/taotao-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-solr/taotao-solr.iml" filepath="$PROJECT_DIR$/taotao-solr/taotao-solr.iml" />
-      <module fileurl="file://$PROJECT_DIR$/taotao-solrj/taotao-solrj.iml" filepath="$PROJECT_DIR$/taotao-solrj/taotao-solrj.iml" />
+      <module fileurl="file://H:\git\taotao\taotao-solrj\taotao-solrj.iml" filepath="H:\git\taotao\taotao-solrj\taotao-solrj.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-sso/taotao-sso.iml" filepath="$PROJECT_DIR$/taotao-sso/taotao-sso.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-web/taotao-web.iml" filepath="$PROJECT_DIR$/taotao-web/taotao-web.iml" />
     </modules>
