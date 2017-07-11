@@ -8,6 +8,7 @@
         <module>../taotao-sso</module>
         <module>../taotao-order</module>
         <module>../rabbitmp</module>
+        <module>../taotao-cart</module>
     </modules>
     <packaging>pom</packaging>
 
