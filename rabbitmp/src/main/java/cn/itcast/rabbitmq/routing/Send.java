@@ -19,7 +19,7 @@ public class Send {
 
         // 消息内容
         String message = "Hello World!";
-        channel.basicPublish(EXCHANGE_NAME, "key2", null, message.getBytes());
+        channel.basicPublish(EXCHANGE_NAME, "insert", null, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
 
         channel.close();

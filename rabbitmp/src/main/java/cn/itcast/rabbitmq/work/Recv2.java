@@ -33,8 +33,7 @@ public class Recv2 {
             String message = new String(delivery.getBody());
             System.out.println(" [x] Received '" + message + "'");
             // 休眠1秒
-            Thread.sleep(1000);
-
+//            Thread.sleep(1000);
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         }
     }

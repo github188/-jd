@@ -23,7 +23,7 @@ public class Send {
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
 
-            Thread.sleep(i * 10);
+//            Thread.sleep(i * 10);
         }
 
         channel.close();
