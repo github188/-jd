@@ -54,9 +54,13 @@ public class CartService {
     }
 
     public List<Cart> queryList() {
+        return queryList(LocalUser.getUser().getId());
+    }
+
+    public List<Cart> queryList(long userId) {
         Example example = new Example(Cart.class);
         example.setOrderByClause("created DESC");
-        example.createCriteria().andEqualTo("userId", LocalUser.getUser().getId());
+        example.createCriteria().andEqualTo("userId", userId);
         return cartMapper.selectByExample(example);
     }
 

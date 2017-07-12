@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -48,13 +47,7 @@ public class CartController {
         if (user == null) {
             //用户未登录
             String s = cartCookieService.addItemToCart(itemId, request);
-            if (s != null) {
-                Cookie cookie = new Cookie("TT_CART", s);
-                cookie.setMaxAge(COOKIE_TIME);
-//                cookie.setDomain(getDomainName(request));
-//                cookie.setPath("/");
-                response.addCookie(cookie);
-            }
+            CookieUtils.setCookie(request, response, "TT_CART", s, COOKIE_TIME, true);
         } else {
             //登录状态
             cartService.addItemToCart(itemId);
@@ -93,10 +86,13 @@ public class CartController {
      */
     @RequestMapping(value = "update/num/{itemId}/{num}", method = RequestMethod.POST)
     public ResponseEntity<Void> updateNum(@PathVariable("num") int num,
-                                          @PathVariable("itemId") long itemId) {
+                                          @PathVariable("itemId") long itemId,
+                                          HttpServletRequest request,
+                                          HttpServletResponse response) {
         User user = LocalUser.getUser();
         if (user == null) {
-
+            String s = cartCookieService.updateNum(request, itemId, num);
+            CookieUtils.setCookie(request, response, "TT_CART", s, COOKIE_TIME, true);
         } else {
             cartService.updateNum(num, itemId);
         }
@@ -111,10 +107,13 @@ public class CartController {
      * @return
      */
     @RequestMapping(value = "delete/{itemId}", method = RequestMethod.GET)
-    public String deleteCart(@PathVariable("itemId") long itemId) {
+    public String deleteCart(@PathVariable("itemId") long itemId,
+                             HttpServletRequest request,
+                             HttpServletResponse response) {
         User user = LocalUser.getUser();
         if (user == null) {
-
+            String s = cartCookieService.deleteCart(request, itemId);
+            CookieUtils.setCookie(request, response, "TT_CART", s, COOKIE_TIME, true);
         } else {
             cartService.deleteCart(itemId);
         }

@@ -1,5 +1,6 @@
 package com.taotao.cart.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taotao.cart.pojo.Cart;
 import com.taotao.cart.pojo.Item;
@@ -69,6 +70,38 @@ public class CartCookieService {
         try {
             return MAPPER.writeValueAsString(cartList);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String updateNum(HttpServletRequest request, long itemId, int num) {
+        try {
+            List<Cart> list = queryListByCookie(request);
+            for (Cart cart : list) {
+                if (cart.getItemId() == itemId) {
+                    cart.setNum(num);
+                    break;
+                }
+            }
+            return MAPPER.writeValueAsString(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String deleteCart(HttpServletRequest request, long itemId) {
+        try {
+            List<Cart> list = queryListByCookie(request);
+            for (Cart cart : list) {
+                if (cart.getItemId() == itemId) {
+                    list.remove(cart);
+                    break;
+                }
+            }
+            return MAPPER.writeValueAsString(list);
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return null;

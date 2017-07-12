@@ -1,9 +1,11 @@
 package com.taotao.web.controller;
 
 import com.taotao.common.service.ApiService;
+import com.taotao.web.bean.Cart;
 import com.taotao.web.bean.Item;
 import com.taotao.web.bean.Order;
 import com.taotao.web.bean.User;
+import com.taotao.web.service.CartService;
 import com.taotao.web.service.ItemService;
 import com.taotao.web.service.OrderService;
 import com.taotao.web.service.UserService;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -37,6 +40,9 @@ public class OrderController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CartService cartService;
 
     /**
      * 提交订单
@@ -96,6 +102,17 @@ public class OrderController {
         ModelAndView mv = new ModelAndView("success");
         mv.addObject("order", order);
         mv.addObject("date", new DateTime().plus(2).toString("MM月dd日"));
+        return mv;
+    }
+
+
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public ModelAndView createByCookie() {
+        ModelAndView mv = new ModelAndView("order-cart");
+        List<Cart> carts = cartService.queryCartList();
+
+        mv.addObject("carts", carts);
+
         return mv;
     }
 }

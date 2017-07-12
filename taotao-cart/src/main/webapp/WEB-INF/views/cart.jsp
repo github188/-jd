@@ -28,7 +28,8 @@
 <!--shortcut end-->
 <div class="w w1 header clearfix">
     <div id="logo"><a href="http://www.taotao.com/"><img clstag="clickcart|keycount|xincart|logo"
-                                                         src="${baseUrl}/images/taotao-logo.gif" title="返回淘淘商城首页" alt="返回淘淘商城首页"></a>
+                                                         src="${baseUrl}/images/taotao-logo.gif" title="返回淘淘商城首页"
+                                                         alt="返回淘淘商城首页"></a>
     </div>
     <div class="language"><a href="javascript:void(0);" onclick="toEnCart()"></a></div>
     <div class="progress clearfix">
@@ -42,9 +43,11 @@
 <div class="w cart">
     <div class="cart-hd group">
         <h2>我的购物车</h2>
+        <c:if test="${empty user}">
         <span id="show2" class="fore"> <span>现在&nbsp;</span><a class="btn" href="http://sso.taotao.com/user/login.html"><span
                 class="btn-text">登录</span></a><span>， 您购物车中的商品将被永久保存</span>
- </span>
+        </span>
+        </c:if>
     </div>
     <div id="show">
 
@@ -152,7 +155,7 @@
                     <div class="cart-total-2014">
                         <div class="cart-button">
                   <span class="check-comm-btns" id="checkout-jd">
-                      <a class="checkout" href="/order/create.html" clstag="clickcart|keycount|xincart|gotoOrderInfo"
+                      <a class="checkout" href="http://www.taotao.com/order/create.html" clstag="clickcart|keycount|xincart|gotoOrderInfo"
                          id="toSettlement">去结算<b></b></a>
                   </span>
                             <span class="combine-btns" style="display:none">
