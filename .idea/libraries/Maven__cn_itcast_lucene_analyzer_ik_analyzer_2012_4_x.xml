@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.itcast.lucene.analyzer:ik-analyzer:2012-4.x">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/itcast/lucene/analyzer/ik-analyzer/2012-4.x/ik-analyzer-2012-4.x.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/itcast/lucene/analyzer/ik-analyzer/2012-4.x/ik-analyzer-2012-4.x-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/itcast/lucene/analyzer/ik-analyzer/2012-4.x/ik-analyzer-2012-4.x-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

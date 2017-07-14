@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/rabbitmp/rabbitmp.iml" filepath="$PROJECT_DIR$/rabbitmp/rabbitmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-cart/taotao-cart.iml" filepath="$PROJECT_DIR$/taotao-cart/taotao-cart.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-common/taotao-common.iml" filepath="$PROJECT_DIR$/taotao-common/taotao-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotao-jd-crawler/taotao-jd-crawler.iml" filepath="$PROJECT_DIR$/taotao-jd-crawler/taotao-jd-crawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-manager/taotao-manager.iml" filepath="$PROJECT_DIR$/taotao-manager/taotao-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-manager/taotao-manager-mapper/taotao-manager-mapper.iml" filepath="$PROJECT_DIR$/taotao-manager/taotao-manager-mapper/taotao-manager-mapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-manager/taotao-manager-pojo/taotao-manager-pojo.iml" filepath="$PROJECT_DIR$/taotao-manager/taotao-manager-pojo/taotao-manager-pojo.iml" />

@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="taotao-jd-crawler:war exploded">
+    <output-path>$PROJECT_DIR$/taotao-jd-crawler/target/taotao-jd-crawler</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="taotao-jd-crawler" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.wicket:wicket:1.3.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.4.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.4.2" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/taotao-jd-crawler/target/taotao-jd-crawler/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="taotao-jd-crawler/web/Web" />
+    </root>
+  </artifact>
+</component>

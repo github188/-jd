@@ -9,6 +9,7 @@
         <module name="rabbitmp" />
         <module name="taotao-cart" />
         <module name="taotao-common" />
+        <module name="taotao-jd-crawler" />
         <module name="taotao-manager-mapper" />
         <module name="taotao-manager-pojo" />
         <module name="taotao-manager-service" />
@@ -23,6 +24,7 @@
       <module name="rabbitmp" target="1.8" />
       <module name="taotao-cart" target="1.8" />
       <module name="taotao-common" target="1.8" />
+      <module name="taotao-jd-crawler" target="1.8" />
       <module name="taotao-manager" target="1.8" />
       <module name="taotao-manager-mapper" target="1.8" />
       <module name="taotao-manager-pojo" target="1.8" />

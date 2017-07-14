@@ -9,6 +9,7 @@
         <module>../taotao-order</module>
         <module>../rabbitmp</module>
         <module>../taotao-cart</module>
+        <module>../taotao-jd-crawler</module>
     </modules>
     <packaging>pom</packaging>
 
