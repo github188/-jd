@@ -43,10 +43,6 @@
 
 	<servlet-mapping>
 		<servlet-name>taotao-search</servlet-name>
-		<!--
-			???
-			??????SEO????????
-		 -->
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 

@@ -11,7 +11,7 @@ public class DynamicDataSourceHolder {
     private static final String SLAVE = "slave";
 
     //使用ThreadLocal记录当前线程的数据源key
-    private static final ThreadLocal<String> holder = new ThreadLocal<String>();
+    private static final ThreadLocal<String> holder = new ThreadLocal<>();
 
     /**
      * 设置数据源key

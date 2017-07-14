@@ -25,6 +25,9 @@ public class CountCodeLine {
                     String fileName = files[i].getName();
                     if (files[i].isDirectory()) {
                         //文件夹
+                        if (files[i].getAbsolutePath().contains("tar") || files[i].getAbsolutePath().contains("EclipseCodeFormatter")) {
+                            continue;
+                        }
                         getFileList(files[i].getAbsolutePath());
                     } else if (fileName.endsWith(".java")){
                         //java文件
