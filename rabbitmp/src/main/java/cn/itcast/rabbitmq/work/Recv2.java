@@ -4,6 +4,7 @@ import cn.itcast.rabbitmq.util.ConnectionUtil;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.QueueingConsumer;
 
 public class Recv2 {
@@ -26,14 +27,13 @@ public class Recv2 {
         QueueingConsumer consumer = new QueueingConsumer(channel);
         // 监听队列，手动返回完成状态
         channel.basicConsume(QUEUE_NAME, false, consumer);
-
         // 获取消息
         while (true) {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
             System.out.println(" [x] Received '" + message + "'");
             // 休眠1秒
-//            Thread.sleep(1000);
+            Thread.sleep(1000);
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         }
     }

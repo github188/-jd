@@ -10,8 +10,10 @@
 		host="127.0.0.1" port="5672" username="taotao" password="taotao"
 		virtual-host="/taotao" />
 
+
+
 	<!-- 定义Rabbit模板，指定连接工厂以及定义exchange -->
-	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="fanoutExchange" />
+	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="fanoutExchange"/>
 	<!-- <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
 		exchange="fanoutExchange" routing-key="foo.bar" /> -->
 

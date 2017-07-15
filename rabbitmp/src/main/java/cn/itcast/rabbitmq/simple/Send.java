@@ -17,7 +17,6 @@ public class Send {
 
         // 声明（创建）队列
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-
         // 消息内容
         String message = "Hello World!";
         channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
