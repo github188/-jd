@@ -75,9 +75,9 @@ ps:项目当前仍是采用分布式架构，后期会逐渐转变为zookeeper+d
 	  	|
 	   	|-taotao-order
 	   	|
-	    |-taotao-search
+	    	|-taotao-search
 		|
-    	|-taotao-solr
+    		|-taotao-solr
 		|
 		|-taotao-sso
 		|
