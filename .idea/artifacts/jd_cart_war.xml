@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jd-cart:war">
+    <output-path>$PROJECT_DIR$/taotao-cart/target</output-path>
+    <root id="archive" name="jd-cart-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jd-cart:war exploded" />
+    </root>
+  </artifact>
+</component>

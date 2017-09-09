@@ -6,6 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jd-cart" />
+        <module name="jd-common" />
+        <module name="jd-crawler" />
+        <module name="jd-manager-mapper" />
+        <module name="jd-manager-pojo" />
+        <module name="jd-manager-service" />
+        <module name="jd-manager-web" />
+        <module name="jd-order" />
+        <module name="jd-search" />
+        <module name="jd-sso" />
+        <module name="jd-web" />
         <module name="rabbitmp" />
         <module name="taotao-cart" />
         <module name="taotao-common" />
@@ -21,6 +32,20 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jd-cart" target="1.8" />
+      <module name="jd-common" target="1.8" />
+      <module name="jd-crawler" target="1.8" />
+      <module name="jd-manager" target="1.8" />
+      <module name="jd-manager-mapper" target="1.8" />
+      <module name="jd-manager-pojo" target="1.8" />
+      <module name="jd-manager-service" target="1.8" />
+      <module name="jd-manager-web" target="1.8" />
+      <module name="jd-order" target="1.8" />
+      <module name="jd-parent" target="1.8" />
+      <module name="jd-search" target="1.8" />
+      <module name="jd-solr" target="1.8" />
+      <module name="jd-sso" target="1.8" />
+      <module name="jd-web" target="1.8" />
       <module name="rabbitmp" target="1.8" />
       <module name="taotao-cart" target="1.8" />
       <module name="taotao-common" target="1.8" />

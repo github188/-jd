@@ -205,7 +205,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="taotao-cart" />
+              <option name="myItemId" value="taotao-common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1309,7 +1309,7 @@
       <workItem from="1503466385458" duration="6519000" />
       <workItem from="1504055722774" duration="14334000" />
       <workItem from="1504260479097" duration="844000" />
-      <workItem from="1504968878176" duration="491000" />
+      <workItem from="1504968878176" duration="575000" />
     </task>
     <servers />
   </component>
@@ -1346,7 +1346,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="322830000" />
+    <option name="totallyTimeSpent" value="322914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
