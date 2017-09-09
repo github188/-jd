@@ -53,16 +53,20 @@ public class CartCookieService {
         }
         if (cart == null) {
             Item item = itemService.queryItemBuId(itemId);
-            cart = new Cart();
-            cart.setItemId(itemId);
-            cart.setUpdated(new Date());
-            cart.setCreated(new Date());
-            cart.setUpdated(cart.getCreated());
-            cart.setNum(1);
-            cart.setItemImage(item.getImage());
-            cart.setItemPrice(item.getPrice());
-            cart.setItemTitle(item.getTitle());
-            cartList.add(cart);
+            if (item != null) {
+                cart = new Cart();
+                cart.setItemId(itemId);
+                cart.setUpdated(new Date());
+                cart.setCreated(new Date());
+                cart.setUpdated(cart.getCreated());
+                cart.setNum(1);
+                cart.setItemImage(item.getImage());
+                cart.setItemPrice(item.getPrice());
+                cart.setItemTitle(item.getTitle());
+                cartList.add(cart);
+            } else {
+                return null;
+            }
         } else {
             cart.setNum(cart.getNum() + 1);
             cart.setUpdated(new Date());

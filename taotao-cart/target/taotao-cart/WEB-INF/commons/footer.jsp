@@ -50,18 +50,18 @@
 				<div><a href="http://help.jd.com/help/question-79.html" target="_blank">夺宝岛</a></div>
 				<div><a href="http://help.jd.com/help/question-86.html" target="_blank">DIY装机</a></div>
 				<div><a href="http://fuwu.jd.com/" target="_blank" rel="nofollow">延保服务</a></div>
-				<div><a href="http://giftcard.jd.com/market/index.action" target="_blank" rel="nofollow">淘淘E卡</a></div>
+				<div><a href="http://giftcard.jd.com/market/index.action" target="_blank" rel="nofollow">京东E卡</a></div>
 				<div><a href="http://help.jd.com/help/question-91.html" target="_blank" rel="nofollow">节能补贴</a></div>
-				<div><a href="http://mobile.jd.com/" target="_blank" rel="nofollow">淘淘通信</a></div>
+				<div><a href="http://mobile.jd.com/" target="_blank" rel="nofollow">京东通信</a></div>
 			</dd>
 		</dl>
 		<div class="fr">
 			<div class="sm" id="branch-office">
 				<div class="smt">
-					<h3>淘淘自营覆盖区县</h3>
+					<h3>京东自营覆盖区县</h3>
 				</div>
 				<div class="smc">
-					<p>淘淘已向全国1859个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+					<p>京东已向全国1859个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
 					<p class="ar"><a href="http://help.jd.com/help/distribution-768.html" target="_blank">查看详情&nbsp;></a></p>
 				</div>
 			</div>
@@ -72,10 +72,10 @@
 <div class="w" clstag="homepage|keycount|home2013|38a">
 	<jsp:include page="footer-links.jsp"></jsp:include>
 </div>
-<script type="text/javascript" src="${baseUrl}/js/jquery-1.2.6.min.js"></script>
-<script type="text/javascript" src="${baseUrl}/js/jquery-extend.js"></script>
-<script type="text/javascript" src="${baseUrl}/js/lib-v1.js" charset="utf-8"></script>
-<script type="text/javascript" src="${baseUrl}/js/taotao.js" charset="utf-8"></script>
+<script type="text/javascript" src="${baseUrl }/js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="${baseUrl }/js/jquery-extend.js"></script>
+<script type="text/javascript" src="${baseUrl }/js/lib-v1.js" charset="utf-8"></script>
+<script type="text/javascript" src="${baseUrl }/js/taotao.js" charset="utf-8"></script>
 <script type="text/javascript"> (function(){
 var A="<strong>热门搜索：</strong><a href='http://sale.jd.com/act/OfHQzJ2GLoYlmTIu.html' target='_blank' style='color:#ff0000' clstag='homepage|keycount|home2013|03b1'>校园之星</a><a href='http://sale.jd.com/act/aEBHqLFMfVzDZUvu.html' target='_blank'>办公打印</a><a href='http://www.jd.com/pinpai/878-12516.html' target='_blank'>美菱冰箱</a><a href='http://sale.jd.com/act/nuzKb6ZiYL.html' target='_blank'>无肉不欢</a><a href='http://sale.jd.com/act/ESvhtcAJNbaj.html' target='_blank'>万件好货</a><a href='http://sale.jd.com/act/nAqiWgU34frQolt.html' target='_blank'>iPhone6</a><a href='http://sale.jd.com/act/p0CmUlEFPHLX.html' target='_blank'>哈利波特</a><a href='http://sale.jd.com/act/FstSdb2vCOLa8BRi.html' target='_blank'>美模接驾</a>";
 var B=["java","apple","LG G3","天梭","保温杯","三个爸爸"];

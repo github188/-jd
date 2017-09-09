@@ -119,6 +119,7 @@ public class UserController {
             Boolean res = userService.doRegister(user);
             if (res) {
                 map.put("status", "200");
+                map.put("data", "注册成功！！");
             } else {
                 map.put("status", "500");
                 map.put("data", "好的，我知道了");
@@ -155,7 +156,7 @@ public class UserController {
             Map<String, Object> map = new HashMap<>();
 
             String token = userService.doLogin(userName, password);
-            if (token == null) {
+            if (token != null) {
                 //登录失败
                 map.put("status", 400);
             } else {

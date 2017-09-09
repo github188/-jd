@@ -82,4 +82,11 @@ public class CartService {
         cart.setItemId(itemId);
         cartMapper.delete(cart);
     }
+
+    public boolean deleteAll(long userId) {
+        Cart cart = new Cart();
+        cart.setUserId(userId);
+        int delete = cartMapper.delete(cart);
+        return delete > 0;
+    }
 }

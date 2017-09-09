@@ -1,6 +1,5 @@
 package cn.itcast.solrj.service;
 
-import cn.itcast.solrj.pojo.Item;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -31,7 +30,7 @@ public class ItemDataImport {
     @Before
     public void setUp() throws Exception {
         // 在url中指定core名称：taotao
-        String url = "http://solr.taotao.com/taotao";
+        String url = "http://120.77.245.247:8983/taotao";
         HttpSolrServer httpSolrServer = new HttpSolrServer(url); // 定义solr的server
         httpSolrServer.setParser(new XMLResponseParser()); // 设置响应解析器
         httpSolrServer.setMaxRetries(1); // 设置重试次数，推荐设置为1
@@ -43,7 +42,7 @@ public class ItemDataImport {
     @Test
     public void testImport() throws Exception {
         //查询商品数据
-        String url = "http://manager.taotao.com/rest/item?page={page}&rows=100";
+        String url = "http://manage.taotaocloud.shop/rest/item?page={page}&rows=100";
         int page = 1;
         int pageSize = 0;
         do {

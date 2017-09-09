@@ -21,7 +21,7 @@ public abstract class BasePojo {
 	protected Date updated;
 
 	public Date getCreated() {
-		return created;
+		return new Date();
 	}
 
 	public void setCreated(Date created) {
@@ -29,7 +29,7 @@ public abstract class BasePojo {
 	}
 
 	public Date getUpdated() {
-		return updated;
+		return new Date();
 	}
 
 	public void setUpdated(Date updated) {

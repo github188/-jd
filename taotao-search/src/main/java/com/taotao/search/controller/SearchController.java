@@ -43,11 +43,10 @@ public class SearchController {
         SearchResult result = null;
         String keyword = null;
         try {
-            keyword = new String(keyWord.getBytes("ISO-8859-1"), "UTF-8");
             result = searchService.search(keyword, page, ROWS);
         } catch (Exception e) {
             e.printStackTrace();
-            result = new SearchResult(new ArrayList<Item>(0), 0);
+            result = new SearchResult(new ArrayList<Item>(0), 0L);
         }
 
         //搜索关键字

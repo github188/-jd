@@ -1,5 +1,9 @@
 package cn.taotao.crawler.pojo;
 
+import javax.persistence.Table;
+import java.util.Date;
+
+@Table(name = "tb_item_desc")
 public class ItemDesc extends BasePojo{
 	
 	/**
@@ -26,6 +30,14 @@ public class ItemDesc extends BasePojo{
 
 	public void setItemDesc(String itemDesc) {
 		this.itemDesc = itemDesc;
+	}
+
+	public Date getCreated () {
+		return new Date();
+	}
+
+	public Date getUpdated () {
+		return new Date();
 	}
 	
 }

@@ -38,7 +38,6 @@ public class JD3CCrawler extends BaseCrawler {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     /**
-     * 
      * @param baseUrl like http://list.jd.com/list.html?cat=737,794,798&page={page}
      */
     public JD3CCrawler(String baseUrl, Long cid) {
@@ -50,15 +49,27 @@ public class JD3CCrawler extends BaseCrawler {
     protected Collection<Item> doParser(String html) {
         Document document = Jsoup.parse(html);// 解析列表页面
         Elements lis = document.select("#plist li.gl-item");// 获取到商品列表的
-        Map<String, Item> items = new HashMap<String, Item>();
+        Map<String, Item> items = new HashMap<>();
+        Map<String, ItemDesc> itemdescs = new HashMap<>();
         for (Element li : lis) {
             Item item = new Item();
-            String id = li.select("div.j-sku-item").attr("data-sku");
-            String title = li.select(".p-name").text();
+            Element div = li.child(0);
+            String id = div.attr("data-sku");
+            if (id == null) {
+                continue;
+            }
             String image = li.select(".p-img img").attr("data-lazy-img");
+            String title = li.select(".p-name").text();
             String desc = getContent(id);
+            if (desc == null || !StringUtils.isNotEmpty(image)) {
+                continue;
+            }
             desc = StringUtils.replace(desc, "data-lazyload", "src");
-            item.setId(Long.valueOf(id));
+            try {
+                item.setId(Long.valueOf(id));
+            } catch (Exception e) {
+                continue;
+            }
             item.setImage(image);
             item.setTitle(title);
             item.setNum(99999L);
@@ -68,24 +79,26 @@ public class JD3CCrawler extends BaseCrawler {
             ItemDesc itemDesc = new ItemDesc();
             itemDesc.setItemId(item.getId());
             itemDesc.setItemDesc(desc);
-
-            item.setItemDesc(itemDesc);
+            //保存商品描述
+            itemDescMapper.insert(itemDesc);
 
             items.put(id, item);
         }
 
         // 获取价格
-        List<String> ids = new ArrayList<String>();
+        List<String> ids = new ArrayList<>();
         for (String id : items.keySet()) {
             ids.add("J_" + id);
         }
         try {
             String priceJson = doGet(PRICE_URL + StringUtils.join(ids, ','));
-            ArrayNode arrayNode = (ArrayNode) MAPPER.readTree(priceJson);
-            for (JsonNode jsonNode : arrayNode) {
-                String id = StringUtils.substringAfter(jsonNode.get("id").asText(), "_");
-                Long price = jsonNode.get("p").asLong() * 1000;
-                items.get(id).setPrice(price);
+            if (priceJson != null) {
+                ArrayNode arrayNode = (ArrayNode) MAPPER.readTree(priceJson);
+                for (JsonNode jsonNode : arrayNode) {
+                    String id = StringUtils.substringAfter(jsonNode.get("id").asText(), "_");
+                    Long price = jsonNode.get("p").asLong() * 1000;
+                    items.get(id).setPrice(price);
+                }
             }
 
         } catch (Exception e) {
@@ -118,7 +131,7 @@ public class JD3CCrawler extends BaseCrawler {
         String html = null;
         try {
             html = super.doGet(url, "GBK");
-            if (StringUtils.contains(html,"404 Not Found")) {
+            if (StringUtils.contains(html, "404 Not Found")) {
                 LOGGER.info("查询不到商品描述数据....... url = " + url);
                 return null;
             }
@@ -130,10 +143,12 @@ public class JD3CCrawler extends BaseCrawler {
         jsonData = StringUtils.substringBeforeLast(jsonData, ")");
         // 解析json获取内容数据
         try {
-            JsonNode jsonNode = MAPPER.readTree(jsonData);
-            return jsonNode.get("content").asText();
+            if (jsonData != null) {
+                JsonNode jsonNode = MAPPER.readTree(jsonData);
+                return jsonNode.get("content").asText();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return null;
     }
@@ -153,7 +168,7 @@ public class JD3CCrawler extends BaseCrawler {
             return 0;
         }
         Document document = Jsoup.parse(html);
-        String pageHtml = document.select(".p-skip").html();
+        String pageHtml = document.select("#J_topPage").text();
         String[] no = pageHtml.split("\\D+");
         return Integer.valueOf(no[1]);
     }

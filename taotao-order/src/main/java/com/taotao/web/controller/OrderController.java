@@ -1,8 +1,10 @@
 package com.taotao.web.controller;
 
+import com.taotao.common.bean.ItemCatResult;
 import com.taotao.web.pojo.Order;
 import com.taotao.web.pojo.TaotaoResult;
 import com.taotao.web.service.OrderService;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,5 +44,6 @@ public class OrderController {
 	public Order queryOrderById(@PathVariable("orderId") String orderId) {
         return orderService.queryOrderById(orderId);
 	}
+
 
 }

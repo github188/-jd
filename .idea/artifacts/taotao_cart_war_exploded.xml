@@ -4,15 +4,15 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="taotao-cart" />
+          <element id="module-output" name="jd-cart" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="taotao-manager-pojo-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="taotao-manager-pojo" />
+            <element id="module-output" name="jd-manager-pojo" />
           </element>
           <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0" />
           <element id="archive" name="taotao-common-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="taotao-common" />
+            <element id="module-output" name="jd-common" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.3.RELEASE" />
@@ -57,7 +57,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/taotao-cart/target/taotao-cart/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="taotao-cart/web/Web" />
+      <element id="javaee-facet-resources" facet="jd-cart/web/Web" />
     </root>
   </artifact>
 </component>

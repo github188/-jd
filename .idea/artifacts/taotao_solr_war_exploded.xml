@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="taotao-solr" />
+          <element id="module-output" name="jd-solr" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.apache.solr:solr-solrj:4.10.2" />
@@ -28,7 +28,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/taotao-solr/target/taotao-solr/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="taotao-solr/web/Web" />
+      <element id="javaee-facet-resources" facet="jd-solr/web/Web" />
     </root>
   </artifact>
 </component>

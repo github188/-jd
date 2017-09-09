@@ -21,7 +21,7 @@ public class ItemService {
 
     public Item queryItemBuId(long id) {
         try {
-            String url = "http://manager.taotao.com/rest/item/" + id;
+            String url = "http://manage.taotaocloud.shop/rest/item/" + id;
             String jsonData = apiService.doGet(url);
             if (jsonData != null) {
                 return MAPPER.readValue(jsonData, Item.class);

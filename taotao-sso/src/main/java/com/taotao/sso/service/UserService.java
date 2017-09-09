@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taotao.common.service.RedisService;
 import com.taotao.sso.mapper.UserMapper;
 import com.taotao.sso.pojo.User;
+import org.apache.ibatis.annotations.One;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -49,13 +50,20 @@ public class UserService {
     }
 
     public Boolean doRegister(User user) {
+        User one = new User();
+        one.setUsername(user.getUsername());
+        one = userMapper.selectOne(one);
+        if (one != null) {
+            return false;
+        }
         user.setId(null);
         user.setCreated(new Date());
         user.setUpdated(new Date());
 
         //加密密码
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-        return userMapper.insert(user) == 1;
+        int res = userMapper.insert(user);
+        return res == 1;
     }
 
     public String doLogin(String userName, String password) throws Exception {

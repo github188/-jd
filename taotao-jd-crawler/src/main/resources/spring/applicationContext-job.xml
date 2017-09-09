@@ -10,30 +10,274 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	
-	<!-- 平板电视 -->
-	<bean class="cn.itcast.crawler.JD3CCrawler">
-		<!-- 设置url {page} 是分页参数 -->
-		<constructor-arg index="0" value="http://list.jd.com/list.html?cat=737,794,798&amp;page={page}"/>
-		<!-- 设置对应系统中的类目ID -->
-		<constructor-arg index="1" value="76"/>
-		
-		<!-- 系统服务 -->
-		<property name="httpService" ref="httpService"/>
-		<property name="itemMapper" ref="itemMapper"/>
-		<property name="indexWriter" ref="indexWriter"/>
-	</bean>
-	
-	<!-- 手机 -->
-	<bean class="cn.itcast.crawler.JD3CCrawler">
-		<!-- 设置url {page} 是分页参数 -->
-		<constructor-arg index="0" value="http://list.jd.com/list.html?cat=9987,653,655&amp;page={page}"/>
-		<!-- 设置对应系统中的类目ID -->
-		<constructor-arg index="1" value="560"/>
-		
-		<!-- 系统服务 -->
-		<property name="httpService" ref="httpService"/>
-		<property name="itemMapper" ref="itemMapper"/>
-		<property name="indexWriter" ref="indexWriter"/>
+	<!--&lt;!&ndash; 钟表 &ndash;&gt;
+	<bean class="cn.taotao.crawler.JD3CCrawler">
+		&lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+		<constructor-arg index="0" value="http://list.jd.com/list.html?cat=5025,5026,13670&amp;page={page}"/>
+		&lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+		<constructor-arg index="1" value="290"/>
+
 	</bean>
 
+
+	&lt;!&ndash; 母婴 &ndash;&gt;
+	<bean class="cn.taotao.crawler.JD3CCrawler">
+		&lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+		<constructor-arg index="0" value="http://list.jd.com/list.html?cat=1319,1523,7052&amp;page={page}"/>
+		&lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+		<constructor-arg index="1" value="296"/>
+
+	</bean>
+
+    &lt;!&ndash; 食品 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1320,1585,9434&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="378"/>
+
+    </bean>
+
+    &lt;!&ndash; 汽车用品 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=6728,6742,11849&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="438"/>
+
+    </bean>
+
+    &lt;!&ndash; 玩具 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=6233,6291,6299&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="495"/>
+
+    </bean>
+
+    &lt;!&ndash; 家居家装 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=9855,9860,9931&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+
+    </bean>
+
+    &lt;!&ndash; 图书 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1713,3263,3394&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 音乐 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=4051,11390&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 少儿图书 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1713,3263,3398&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 编程图书 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1713,3287,3797&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 空调 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=737,794,870&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 风扇 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=737,738,1278&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 健康家用电器 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=737,1276,1290&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 其他家用电器 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=737,738,825&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 厨卫 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=9855,9857,9908&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 装修家电 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=9855,9858,9921&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 电脑整机 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=670,671,673&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 电脑配件 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=670,677,5009&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 文具 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=670,729,1449&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 护理 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1316,1386,11923&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 日常护理 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1319,1527,1559&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 食品 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1320,1584,2680&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 零食 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1320,5019,5022&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 汽车装饰 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=6728,6745,11953&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 玩具 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=6233,6235,6245&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 手机配件 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=9987,830,11302&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 数码 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=652,654,5012&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 家具 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=9847,9848&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 厨具 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=6196,6197,6199&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 女装 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1315,1343,9722&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 男装 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1315,1342,9738&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>
+
+    &lt;!&ndash; 内衣 &ndash;&gt;
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        &lt;!&ndash; 设置url {page} 是分页参数 &ndash;&gt;
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=1315,1345,9744&amp;page={page}"/>
+        &lt;!&ndash; 设置对应系统中的类目ID &ndash;&gt;
+        <constructor-arg index="1" value="633"/>
+    </bean>-->
+
+    <!-- 文胸 -->
+    <bean class="cn.taotao.crawler.JD3CCrawler">
+        <!-- 设置url {page} 是分页参数 -->
+        <constructor-arg index="0" value="http://list.jd.com/list.html?cat=9987,653,655&amp;page={page}"/>
+        <!-- 设置对应系统中的类目ID -->
+        <constructor-arg index="1" value="633"/>
+    </bean>
 </beans>

@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="taotao-manager-mapper" />
+          <element id="module-output" name="jd-manager-mapper" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.apache.wicket:wicket:1.3.2" />
@@ -12,7 +12,7 @@
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.4.2" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
           <element id="archive" name="taotao-common-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="taotao-common" />
+            <element id="module-output" name="jd-common" />
           </element>
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" />
@@ -37,7 +37,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/taotao-manager/taotao-manager-mapper/target/mapper/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="taotao-manager-mapper/web/Web" />
+      <element id="javaee-facet-resources" facet="jd-manager-mapper/web/Web" />
     </root>
   </artifact>
 </component>

@@ -11,12 +11,10 @@
 		<param-value>classpath:spring/applicationContext*.xml</param-value>
 	</context-param>
 
-	<!--Spring?ApplicationContext ?? -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- ???????UTF8?? -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

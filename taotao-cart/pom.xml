@@ -2,25 +2,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>taotao-parent</artifactId>
-        <groupId>com.taotao.parent</groupId>
+        <artifactId>jd-parent</artifactId>
+        <groupId>com.jd.parent</groupId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../taotao-parent/pom.xml</relativePath>
+        <relativePath>../jd-parent/pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>taotao-cart</artifactId>
+    <artifactId>jd-cart</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.taotao.manager</groupId>
-            <artifactId>taotao-manager-pojo</artifactId>
+            <groupId>com.jd.manager</groupId>
+            <artifactId>jd-manager-pojo</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.taotao.common</groupId>
-            <artifactId>taotao-common</artifactId>
+            <groupId>com.jd.common</groupId>
+            <artifactId>jd-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!-- 单元测试 -->

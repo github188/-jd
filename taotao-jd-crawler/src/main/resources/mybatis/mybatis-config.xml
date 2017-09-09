@@ -5,9 +5,24 @@
 
 <configuration>
 
-	<settings>
-		<!-- 开启字段名和属性名驼峰似的匹配 -->
-		<setting name="mapUnderscoreToCamelCase" value="true" />
-	</settings>
-	
+    <!--开启驼峰设置-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+
+    <plugins>
+
+        <plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
+            <!--主键自增回写方法,默认值MYSQL,详细说明请看文档-->
+            <property name="IDENTITY" value="MYSQL"/>
+            <!--主键自增回写方法执行顺序,默认AFTER,可选值为(BEFORE|AFTER)-->
+            <!--<property name="ORDER" value="AFTER"/>-->
+            <!--通用Mapper接口，多个通用接口用逗号隔开-->
+            <property name="mappers" value="com.github.abel533.mapper.Mapper"/>
+        </plugin>
+
+    </plugins>
+
+
 </configuration>

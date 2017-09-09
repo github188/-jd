@@ -43,7 +43,7 @@ public class ImageDownloadCrawler implements Crawler {
                 }
                 httpService.downloadFile(url, new File(propertieService.IMAGE_DIR + entry.getValue()));
             } catch (Exception e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
         }
     }

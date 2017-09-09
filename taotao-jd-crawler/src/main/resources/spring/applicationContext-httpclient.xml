@@ -28,7 +28,7 @@
 	<bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>
 	
 	<!-- 定期清理无效的连接 -->
-	<bean class="cn.itcast.crawler.util.IdleConnectionEvictor" destroy-method="shutdown">
+	<bean class="cn.taotao.crawler.util.IdleConnectionEvictor" destroy-method="shutdown">
 		<constructor-arg index="0" ref="httpClientConnectionManager" />
 		<!-- 间隔一分钟清理一次 -->
 		<constructor-arg index="1" value="60000" />

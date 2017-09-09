@@ -12,13 +12,17 @@ import org.apache.lucene.document.Field.Store;
 
 import cn.taotao.crawler.util.LuceneUtils;
 
+import javax.persistence.Table;
+import java.util.Date;
+
 
 /**
  * 
  * @author zhijun
  * 
  */
-public class Item extends BasePojo {
+@Table(name = "tb_item")
+public class Item {
 
 	/**
 	 * 商品id，同时也是商品编号
@@ -64,16 +68,10 @@ public class Item extends BasePojo {
 	 * 商品状态，1-正常，2-下架，3-删除
 	 */
 	private Integer status;
-	
-	private ItemDesc itemDesc;
-	
-	public ItemDesc getItemDesc() {
-		return itemDesc;
-	}
 
-	public void setItemDesc(ItemDesc itemDesc) {
-		this.itemDesc = itemDesc;
-	}
+	private Date created;
+
+	private Date updated;
 
 	public Integer getStatus() {
 		return status;
@@ -108,6 +106,9 @@ public class Item extends BasePojo {
 	}
 
 	public Long getPrice() {
+		if (price == null) {
+			price = 3999000L;
+		}
 		return price;
 	}
 
@@ -146,6 +147,17 @@ public class Item extends BasePojo {
 	public void setCid(Long cid) {
 		this.cid = cid;
 	}
+
+	public Date getCreated() {
+		return new Date();
+	}
+
+	public Date getUpdated() {
+		return new Date();
+	}
+
+
+
 
 	@Override
 	public String toString() {

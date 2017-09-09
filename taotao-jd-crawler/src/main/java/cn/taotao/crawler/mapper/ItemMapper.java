@@ -3,17 +3,9 @@ package cn.taotao.crawler.mapper;
 import java.util.Collection;
 
 import cn.taotao.crawler.pojo.Item;
+import com.github.abel533.mapper.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-public interface ItemMapper {
+public interface ItemMapper extends Mapper<Item>{
 
-	/**
-	 * 新增商品
-	 * 
-	 * @param item
-	 *            商品对象
-	 * @return
-	 */
-	public Long saveItems(@Param("items") Collection<Item> items);
-	
 }

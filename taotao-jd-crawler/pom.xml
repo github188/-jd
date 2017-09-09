@@ -48,11 +48,6 @@
             <version>4.10.2</version>
         </dependency>
         <dependency>
-            <groupId>cn.itcast.lucene.analyzer</groupId>
-            <artifactId>ik-analyzer</artifactId>
-            <version>2012-4.x</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-queryparser</artifactId>
             <version>4.10.2</version>
@@ -61,6 +56,11 @@
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-common</artifactId>
             <version>4.10.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.abel533</groupId>
+            <artifactId>mapper</artifactId>
+            <version>2.3.4</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -102,6 +102,13 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.janeluo/ikanalyzer -->
+        <dependency>
+            <groupId>com.janeluo</groupId>
+            <artifactId>ikanalyzer</artifactId>
+            <version>2012_u6</version>
+        </dependency>
+
     </dependencies>
 
 </project>

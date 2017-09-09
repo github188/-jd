@@ -4,11 +4,11 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="taotao-sso" />
+          <element id="module-output" name="jd-sso" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="taotao-common-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="taotao-common" />
+            <element id="module-output" name="jd-common" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.3.RELEASE" />
@@ -56,7 +56,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/taotao-sso/target/taotao-sso/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="taotao-sso/web/Web" />
+      <element id="javaee-facet-resources" facet="jd-sso/web/Web" />
     </root>
   </artifact>
 </component>

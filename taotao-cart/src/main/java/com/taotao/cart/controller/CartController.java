@@ -7,16 +7,22 @@ import com.taotao.cart.service.CartService;
 import com.taotao.cart.util.LocalUser;
 import com.taotao.common.util.CookieUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.List;
 
 /**
@@ -119,6 +125,27 @@ public class CartController {
         }
 
         return "redirect:/cart/list.html";
+    }
+
+    /**
+     * 清空购物车
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "deleteAll", method = RequestMethod.GET)
+    public String deleteAll(HttpServletRequest request,
+                            HttpServletResponse response,
+                            @RequestParam("orderId") long orderId) {
+        User user = LocalUser.getUser();
+        if (user == null) {
+            CookieUtils.setCookie(request, response, "TT_CART", "", COOKIE_TIME, true);
+        } else {
+            cartService.deleteAll(user.getId());
+        }
+
+        return "redirect:http://www.taotaocloud.shop/order/success.html?id=" + orderId;
     }
 
 
